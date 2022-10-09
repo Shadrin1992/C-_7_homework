@@ -19,10 +19,11 @@ for (int i = 0; i < array.GetLength(0); i++)
     Console.WriteLine();
 }
 
-
+// Функция searchElement ищет элемент по индексу, как в условии задачи.
+// Функция searchValue ищет элемент по значения как в примере.
 void searchElement(int i, int j)
 {
-    if (i > array.GetLength(0) || j > array.GetLength(1))
+    if (i >= array.GetLength(0) || j >= array.GetLength(1))
     {
         Console.WriteLine("Такого числа в массиве нет");
     }
@@ -32,4 +33,32 @@ void searchElement(int i, int j)
     }
 }
 
-// searchElement(2,2);
+void searchValue(int value)
+{
+    bool isFound = false;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            isFound = array[i,j] == value;
+            if (isFound)
+            {
+                break;
+            }
+        } 
+        if (isFound)
+            {
+                break;
+            }   
+    }
+    if (isFound)
+    {
+        Console.WriteLine(value);
+    }
+    else
+    {
+        Console.WriteLine("not found");
+    }
+}
+// searchElement(3,2);
+searchValue(8);
